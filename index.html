@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta charset="utf-8">
@@ -16,7 +16,7 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
 
-    <title>My Movie</title>
+    <title>영화 기록소</title>
 
     <style>
         * {
@@ -53,13 +53,33 @@
         }
 
         .header button:hover {
-            /*cursor: pointer;*/
             border: 2px solid white;
             font-weight: bold;
         }
+        .postingBox {
+            width: 500px;
+            padding: 20px;
+            margin: 20px auto 0;
+            border-radius: 5px;
+            box-shadow: 0px 0px 3px 0px gray;
+        }
+        .postingBox .movieUrl {
+            margin-bottom: 15px;
+        }
+        .postingBox .btnGroup {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .postingBox .btnGroup .btn {
+            width: 100px;
+            margin-right: 15px;
+        }
         .postingCard {
             width: 1100px;
-            margin: auto;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -67,6 +87,32 @@
     <div class="header">
         <h1>Park's 영화 기록소</h1>
         <button>영화 기록하기</button>
+    </div>
+    <div class="postingBox">
+        <div class="form-floating movieUrl">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">영화URL</label>
+        </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">별점</label>
+            <select class="form-select" id="inputGroupSelect01">
+                <option selected>---선택하기---</option>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
+            </select>
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                      style="height: 100px"></textarea>
+            <label for="floatingTextarea2">내 생각 적어보기</label>
+        </div>
+        <div class="btnGroup">
+            <button type="button" class="btn btn-dark">기록하기</button>
+            <button type="button" class="btn btn-outline-dark">닫기</button>
+        </div>
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 postingCard">
         <div class="col">
