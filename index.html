@@ -63,6 +63,7 @@
             margin: 20px auto 0;
             border-radius: 5px;
             box-shadow: 0px 0px 3px 0px gray;
+            display: none;  /*포스팅박스 숨겨놓기*/
         }
         .postingBox .movieUrl {
             margin-bottom: 15px;
@@ -88,16 +89,31 @@
         }
 
     </style>
+    <script>
+        let openCount = 1;
+        function openBox() {
+            if (openCount % 2 === 1) {
+                $('#postingBox').show();
+            } else {
+                $('#postingBox').hide();
+            }
+            openCount++;
+        }
+        function closeBox() {
+            $('#postingBox').hide();
+            openCount++;
+        }
+    </script>
 </head>
 <body>
     <div class="header">
         <h1>Park's 영화 기록소</h1>
-        <button>영화 기록하기</button>
+        <button onclick="openBox()">영화 기록하기</button>
     </div>
-    <div class="postingBox">
+    <div class="postingBox" id="postingBox">
         <div class="form-floating movieUrl">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-            <label for="floatingTextarea">영화URL</label>
+            <textarea class="form-control" placeholder="Leave a comment here" id="movieUrl"></textarea>
+            <label for="movieUrl">영화URL</label>
         </div>
         <div class="input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">별점</label>
@@ -117,7 +133,7 @@
         </div>
         <div class="btnGroup">
             <button type="button" class="btn btn-dark">기록하기</button>
-            <button type="button" class="btn btn-outline-dark">닫기</button>
+            <button type="button" class="btn btn-outline-dark" onclick="closeBox()">닫기</button>
         </div>
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 postingCard">
